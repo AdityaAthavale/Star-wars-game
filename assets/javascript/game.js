@@ -26,31 +26,36 @@ function createCharacters() {
         let heroName = superHeros[i]
         let char = new Character(heroName, i * 100, i * 50, i * 100, heroName)
         characters.push(char)
-        let imageDiv = $('<div>')
-        imageDiv.addClass("imageTile")
-        
-        let firstRow = $('<div>')
-        firstRow.addClass('row')
-        let imagePath = "./assets/images/" + char.image + ".jpeg"
-        let image = $('<img>')
-        image.attr('src', imagePath)
-        image.addClass('heroImage col-md-12')
-        firstRow.append(image)
-
-        let secondRow = $('<div>')
-        secondRow.addClass('row')
-        let title = $('<h2>')
-        title.addClass('col-md-12')
-        title.text(char.name)
-        secondRow.append(title)
-
-        imageDiv.append(firstRow)
-        imageDiv.append(secondRow)
-        imageDiv.attr("id", i);
-        $("#imageScroller").append(imageDiv)
+        $("#imageScroller").append(createImageTile(char, i))
     }
     $('#imageScroller').append()
 }
+
+function createImageTile(char, index) {
+    let imageDiv = $('<div>')
+    imageDiv.addClass("imageTile")
+    
+    let firstRow = $('<div>')
+    firstRow.addClass('row')
+    let imagePath = "./assets/images/" + "Iron Man" + ".jpeg"
+    let image = $('<img>')
+    image.attr('src', imagePath)
+    image.addClass('heroImage')
+    firstRow.append(image)
+
+    let secondRow = $('<div>')
+    secondRow.addClass('row')
+    let title = $('<h2>')
+    title.addClass('imageTitle')
+    title.text(char.name)
+    secondRow.append(title)
+
+    imageDiv.append(firstRow)
+    imageDiv.append(secondRow)
+    imageDiv.attr("id", index);
+    return imageDiv
+}
+
 $(document).ready(function() {
     createCharacters()
     console.log(characters)

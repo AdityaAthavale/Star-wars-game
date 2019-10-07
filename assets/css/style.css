@@ -1,11 +1,23 @@
 .heroImage {
     height: 100px;
     width: 100px;
+    margin: 5px
 }
 
 .horizontalScroll {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+    display: flex;
+    overflow-x: auto;
     height: 200px;
 }
+
+.imageTile {
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px;
+}
+  
