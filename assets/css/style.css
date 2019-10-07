@@ -1,0 +1,11 @@
+.heroImage {
+    height: 100px;
+    width: 100px;
+}
+
+.horizontalScroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 200px;
+}
