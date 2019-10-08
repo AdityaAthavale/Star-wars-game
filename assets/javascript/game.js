@@ -18,13 +18,18 @@ class Character {
     }
 }
 
+const minimumHealth = 100
+const minimumAttack = 150
+const minimumCounterAttack = 75
+
 let characters = [];
+let usersPlayer = null;
 
 function createCharacters() {
     const superHeros = ["Iron Man", "Super Man", "Spider Man", "Ant Man", "Thor", "Bat Man", "Hulk", "Wonder Girl", "Wasp", "Captain America", "Vision", "Black Panther", "She Hulk", "Hawkeye", "Falcon", "War Machine", "Scarlet Witch", "Nebula", "Gamora", "Rocket", "Groot", "Doctor Strange", "Wong", "Captain Marvel", "Thanos"]
     for (let i in superHeros) {
         let heroName = superHeros[i]
-        let char = new Character(heroName, i * 100, i * 50, i * 100, heroName)
+        let char = new Character(heroName, (minimumHealth+(i*100)), (minimumAttack + (i * 50)), (minimumCounterAttack + (i * 40)), heroName)
         characters.push(char)
         $("#imageScroller").append(createImageTile(char, i))
     }
@@ -45,14 +50,20 @@ function createImageTile(char, index) {
 
     let secondRow = $('<div>')
     secondRow.addClass('row')
-    let title = $('<h2>')
-    title.addClass('imageTitle')
+    let title = $('<h6>')
+    title.addClass('imageTitle col-md-12')
     title.text(char.name)
     secondRow.append(title)
 
     imageDiv.append(firstRow)
     imageDiv.append(secondRow)
     imageDiv.attr("id", index);
+
+    imageDiv.click(function(event) {
+        usersPlayer = characters[this.id];
+        $('#' + this.id).css({'border' : '1px blue solid'})
+    })
+
     return imageDiv
 }
 
