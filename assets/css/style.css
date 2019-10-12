@@ -21,6 +21,47 @@
 .buttonContainer {
     align-content: center;
     display: inline-block;
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+    margin-top: 50px;
+}
+
+.player {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+#usersPlayer {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#computersPlayer {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.attackButton {
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;  
+}
+
+.progress {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.name {
+    text-align: center;
+}
+
+#gameContainer {
 }
 
 h6 {
