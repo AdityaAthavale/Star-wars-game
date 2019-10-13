@@ -5,7 +5,7 @@
 }
 
 .horizontalScroll {
-    display: flex;
+    display: inline-flex;
     overflow-x: auto;
     height: 200px;
 }
@@ -34,11 +34,15 @@
 }
 
 #usersPlayer {
+    width: 200px;
+    height: 200px;
     margin-right: 10%;
     margin-left: 10%;
 }
 
 #computersPlayer {
+    width: 200px;
+    height: 200px;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -59,9 +63,19 @@
 
 .name {
     text-align: center;
+    width: 100%;
 }
 
 #gameContainer {
+    display:inline;
+    text-align: center;
+    align-content: center;
+}
+
+#startUpContainer {
+    display:inline;
+    text-align: center;
+    align-content: center;
 }
 
 h6 {
