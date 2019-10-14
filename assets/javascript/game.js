@@ -40,6 +40,20 @@ function createCharacters() {
     $('#imageScroller').append()
 }
 
+function createWeapon() {
+    let weapon = $('<div>')
+    weapon.addClass('weapon')
+    weapon.text('=======>')
+    $('#gameRow').append(weapon)
+}
+
+function createCounterWeapon() {
+    let weapon = $('<div>')
+    weapon.addClass('counterWeapon')
+    weapon.text('<=======')
+    $('#gameRow').append(weapon)
+}
+
 function createImageTile(char, index) {
     let imageDiv = $('<div>')
     imageDiv.addClass("imageTile")
@@ -78,7 +92,6 @@ function createImageTile(char, index) {
             $('#computerHealth').attr('aria-valuenow', 100)
             $('#computerHealth').attr('style','width:100%')
             $('#computerName').text(computersPlayer.name + " (Computer)")
-            startGame()
         }
     })
     return imageDiv
@@ -88,16 +101,26 @@ function finishGame(winner) {
     alert(winner + ' Won!')
     $('#gameContainer').hide()
     $('#startUpContainer').show()
+    resetGame()
 }
 
-function startGame() {
+function resetGame() {
+    $('#characterPicker').text("Choose opponent player to continue:")
+    usersPlayer = null
+    computersPlayer = null
+    isPickingUsersPlayer = true
 }
 
 $(document).ready(function() {
     createCharacters()
-    startGame()
-
     $('#attackButton').click(function() {
+        $(".weapon").remove()
+        $(".counterWeapon").remove()
+        createWeapon()
+        $(".weapon").animate({left: '+=400px'})
+        createCounterWeapon()
+        $(".counterWeapon").animate({left: '-=400px'})
+
         computersPlayer.healthPoints -= usersPlayer.attack;
         usersPlayer.healthPoints -= computersPlayer.counterAttackPower
 
